@@ -17,7 +17,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(30))
     def dispatch(self, *args, **kwargs):
-        #cache.clear()
+        # cache.clear()
         return super(TaskViewSet, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):

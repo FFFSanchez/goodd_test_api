@@ -20,5 +20,8 @@ class TaskViewSet(viewsets.ModelViewSet):
         #cache.clear()
         return super(TaskViewSet, self).dispatch(*args, **kwargs)
 
+    def get_queryset(self):
+        return self.request.user.tasks.all()
+
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
